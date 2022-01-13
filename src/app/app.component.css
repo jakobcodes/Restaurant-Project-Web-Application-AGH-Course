@@ -1,0 +1,11 @@
+*,
+*::after,
+*::before {
+    font-family: Lucida Handwriting, Helvetica, cursive;
+}
+
+::ng-deep * {
+    margin: 0;
+    padding: 0;
+    font-family: Lucida Handwriting, Helvetica, cursive;
+}

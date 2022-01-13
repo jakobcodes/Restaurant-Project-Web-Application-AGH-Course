@@ -1,0 +1,19 @@
+.currency-button {
+    font-size: 1.5rem;
+    padding: 0.5rem 1rem;
+}
+
+.currency-button:hover {
+    box-shadow: 0 0 1rem black;
+    transform: scale(1.1);
+}
+
+button {
+    border: none;
+    border-radius: 1rem;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    align-self: center;
+    transition: 250ms;
+}

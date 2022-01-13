@@ -1,0 +1,17 @@
+.container {
+    margin-top: 1rem;
+}
+
+.fa-star {
+    cursor: pointer;
+    font-size: 1.5rem;
+    transition: 150ms;
+}
+
+.fa-star:hover {
+    transform: scale(1.2);
+}
+
+.checked {
+    color: orange;
+}

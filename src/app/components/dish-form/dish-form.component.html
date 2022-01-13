@@ -1,0 +1,101 @@
+<div class="form-container">
+    <form action="" (ngSubmit)="onSubmit(dishForm)" [formGroup]="dishForm">
+        <div class="input-group">
+            <label for="">Nazwa dania: </label>
+            <input formControlName="name" name="name">
+            <div *ngIf="name?.invalid && (name?.dirty || name?.touched)" class="alert">
+                <div *ngIf="name?.errors?.['required']">
+                    Name is required
+                </div>
+            </div>
+        </div>
+        <div class="input-group">
+            <label for="">Kuchnia: </label>
+            <input formControlName="type" name="type">
+            <div *ngIf="type?.invalid && (type?.dirty || type?.touched)" class="alert">
+                <div *ngIf="type?.errors?.['required']">
+                    Type is required
+                </div>
+            </div>
+        </div>
+        <div class="input-group">
+            <label for="">Kategoria: </label>
+            <input formControlName="category" name="category">
+            <div *ngIf="category?.invalid && (category?.dirty || category?.touched)" class="alert">
+                <div *ngIf="category?.errors?.['required']">
+                    kategoria jest wymagana
+                </div>
+            </div>
+        </div>
+        <div class="input-group">
+            <label for="">Składniki: </label>
+            <input formControlName="ingredients" name="ingredients">
+            <div *ngIf="ingredients?.invalid && (ingredients?.dirty || ingredients?.touched)" class="alert">
+                <div *ngIf="ingredients?.errors?.['required']">
+                    składniki są wymagane
+                </div>
+                <div *ngIf="ingredients?.errors?.['pattern']">
+                    zly format (np. cebula - ogorek,pomidor - cebula,ogorek,pomidor )
+                </div>
+            </div>
+        </div>
+        <div class="input-group">
+            <label for="">Maksymalna sprzedaż w dniu: </label>
+            <input formControlName="maxPositions" name="maxPositions">
+            <div *ngIf="maxPositions?.invalid && (maxPositions?.dirty || maxPositions?.touched)" class="alert">
+                <div *ngIf="maxPositions?.errors?.['required']">
+                    pole wymagane
+                </div>
+                <div *ngIf="maxPositions?.errors?.['pattern']">
+                    zla wartosc
+                </div>
+                <div *ngIf="maxPositions?.errors?.['min']">
+                    za mala wartosc
+                </div>
+                <div *ngIf="maxPositions?.errors?.['max']">
+                    za duza wartosc
+                </div>
+            </div>
+        </div>
+        <div class="input-group">
+            <label for="">Cena: </label>
+            <input formControlName="price" name="price">
+            <div *ngIf="price?.invalid && (price?.dirty || price?.touched)" class="alert">
+                <div *ngIf="price?.errors?.['required']">
+                    cena jest wymagana
+                </div>
+                <div *ngIf="price?.errors?.['pattern']">
+                    zla wartosc
+                </div>
+                <div *ngIf="price?.errors?.['min']">
+                    za mala cena
+                </div>
+                <div *ngIf="price?.errors?.['max']">
+                    za duza cena
+                </div>
+            </div>
+        </div>
+        <div class="input-group">
+            <label for="">Opis: </label>
+            <input formControlName="description" name="description">
+            <div *ngIf="description?.invalid && (description?.dirty || description?.touched)" class="alert">
+                <div *ngIf="description?.errors?.['required']">
+                    opis jest wymagany
+                </div>
+            </div>
+        </div>
+        <div class="input-group">
+            <label for="">Galeria: </label>
+            <input formControlName="images" name="images">
+            <div *ngIf="images?.invalid && (images?.dirty || images?.touched)" class="alert">
+                <div *ngIf="images?.errors?.['required']">
+                    link jest wymagany
+                </div>
+                <div *ngIf="images?.errors?.['pattern']">
+                    zly format linka
+                </div>
+            </div>
+        </div>
+        <button class="submit-button" type="submit" [disabled]="!dishForm.valid">Dodaj</button>
+    </form>
+</div>

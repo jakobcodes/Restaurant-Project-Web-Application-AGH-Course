@@ -1,0 +1,20 @@
+<h1 class="title">MENU</h1>
+<div class="reserved-positions" [ngStyle]="{'background-color' : reservedPositions> 10 ? 'blue' : 'orange'}">Ilosc zamówionych dan: {{reservedPositions}}</div>
+<!-- <app-dish-form (dishEvent)="receiveDish($event)"></app-dish-form> -->
+<div class="dishes">
+    <div class="dish-container" *ngFor="let dish of dishes; let i=index" [ngClass]="{'most-expensive' : dish.price == maxPrice, 'cheapest' : dish.price == minPrice}">
+        <img src={{dish.images}} alt="" (click)="goToDetails(i)">
+        <h1 class="name">{{dish.name | uppercase}}</h1>
+        <h3 class="price"> {{showPrice(dish)}} {{currency}} </h3>
+        <div class="cnt-left" [ngClass]="{'cnt-left-warning' : (dish.maxPositions - dish.basketQuantity) < 4}"> {{dish.maxPositions - dish.basketQuantity}}</div>
+
+        <div class="buttons">
+            <button class="decBtn" [ngClass]="{'vanish' : dish.basketQuantity == 0}" (click)="decrement(dish)">-</button>
+            <h4 class="cnt">{{dish.basketQuantity}}</h4>
+            <button class="incBtn" [ngClass]="{'vanish' : dish.basketQuantity == dish.maxPositions}" (click)="increment(dish)">+</button>
+        </div>
+        <button class="delete" (click)="removePos(dish)">
+            🗑️
+        </button>
+    </div>
+</div>

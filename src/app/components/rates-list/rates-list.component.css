@@ -1,0 +1,43 @@
+.rate {
+    width: 70%;
+    min-height: 10%;
+    margin: 2rem auto;
+    padding: 3rem 6rem;
+    background-color: whitesmoke;
+    transform: skewX(-12deg);
+    border-radius: 5px;
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.nick {
+    text-transform: capitalize;
+}
+
+.dish {
+    text-transform: uppercase;
+    margin: 0.5rem 0;
+    color: rgb(60, 60, 60);
+}
+
+.date {
+    margin-top: 1rem;
+}
+
+.desc {
+    overflow-wrap: break-word;
+}
+
+@media(max-width:900px) {
+    .rate {
+        width: 50%;
+    }
+}
+
+@media(max-width:700px) {
+    .rate {
+        width: 80%;
+        padding: 1rem;
+        transform: scale(0.9);
+    }
+}

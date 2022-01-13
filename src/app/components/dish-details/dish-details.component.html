@@ -1,0 +1,24 @@
+<div class="container">
+    <app-carousel [images]=dishes[id].images></app-carousel>
+    <app-rate></app-rate>
+    <h1>{{dishes[id].name | uppercase}}</h1>
+    <h4> {{dishes[id].category | uppercase}}</h4>
+    <h3 class="price"> {{showPrice(dishes[id])}} {{currency}} </h3>
+
+    <p class="description">
+        {{dishes[id].description}}
+    </p>
+
+
+    <div class="cnt-left" [ngClass]="{'cnt-left-warning' : (dishes[id].maxPositions - dishes[id].basketQuantity) < 4}"> {{dishes[id].maxPositions - dishes[id].basketQuantity}}</div>
+
+    <div class="buttons">
+        <button class="decBtn" [ngClass]="{'vanish' : dishes[id].basketQuantity == 0}" (click)="decrement(dishes[id])">-</button>
+        <h4 class="cnt">{{dishes[id].basketQuantity}}</h4>
+        <button class="incBtn" [ngClass]="{'vanish' : dishes[id].basketQuantity == dishes[id].maxPositions}" (click)="increment(dishes[id])">+</button>
+    </div>
+</div>
+<app-rate-form [dish]="dishes[id]">
+
+</app-rate-form>
+<app-rates-list [dish]=dishes[id]></app-rates-list>

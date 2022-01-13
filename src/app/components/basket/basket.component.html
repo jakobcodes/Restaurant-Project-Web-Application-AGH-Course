@@ -1,0 +1,21 @@
+<section>
+    <header>
+        <p class="sum">
+            Total price: {{sum}} {{currency}}
+        </p>
+    </header>
+    <div class="informations">
+
+    </div>
+
+    <div class="basket-container">
+        <div class="position" *ngFor="let dish of basket">
+            <img src={{dish.images}} alt="">
+            <div class="div pos-info">
+                <h3 class="dish-name">{{dish.name}}</h3>
+                <p class="price">Unit price: {{showPrice(dish)}} {{currency}}</p>
+                <p class="quantity">Quantity: {{dish.basketQuantity}}</p>
+            </div>
+        </div>
+    </div>
+</section>

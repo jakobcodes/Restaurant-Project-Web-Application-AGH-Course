@@ -1,0 +1,9 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="container">
+    <span class="fa fa-star" [class.checked]="dishRate > 0" (click)="changeRate(1)"></span>
+    <span class="fa fa-star" [class.checked]="dishRate > 1" (click)="changeRate(2)"></span>
+    <span class="fa fa-star" [class.checked]="dishRate > 2" (click)="changeRate(3)"></span>
+    <span class="fa fa-star" [class.checked]="dishRate > 3" (click)="changeRate(4)"></span>
+    <span class="fa fa-star" [class.checked]="dishRate > 4" (click)="changeRate(5)"></span>
+</div>

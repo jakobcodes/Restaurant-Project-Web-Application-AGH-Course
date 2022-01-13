@@ -1,0 +1,102 @@
+.form-container {
+    padding-bottom: 3rem;
+    background-size: cover;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+}
+
+form {
+    padding: 3rem;
+    text-align: center;
+}
+
+label {
+    color: white;
+}
+
+input {
+    padding: 1rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem 0;
+}
+
+.form-input {
+    background-color: whitesmoke;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+    color: black;
+    display: block;
+    font-size: 1.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: none;
+}
+
+.header_container {
+    padding: 2rem 0;
+    padding-top: 0;
+}
+
+.header_container h2 {
+    font-size: 2rem;
+    text-transform: uppercase;
+    color: white;
+}
+
+.form-input:focus {
+    outline: none;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 1);
+}
+
+.submit-btn {
+    /* box-shadow: 0 0 1rem rgb(253, 5, 5); */
+    /* box-shadow: 0 0 1rem rgb(3, 74, 167); */
+    background-color: black;
+    color: white;
+    padding: 1rem 2.5rem;
+    border-radius: 5px;
+    border: none;
+    font-size: 1rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 200ms;
+}
+
+.submit-btn:hover {
+    box-shadow: 0 0 1rem black;
+    transform: scale(1.1) skewX(-12deg);
+}
+
+.rate {
+    width: 70%;
+    min-height: 10%;
+    margin: 2rem auto;
+    padding: 3rem 6rem;
+    background-color: whitesmoke;
+    transform: skewX(-12deg);
+    border-radius: 5px;
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.nick {
+    text-transform: capitalize;
+}
+
+.dish {
+    text-transform: uppercase;
+    margin: 0.5rem 0;
+    color: rgb(60, 60, 60);
+}
+
+.date {
+    margin-top: 1rem;
+}
+
+.alert {
+    text-align: start;
+    color: red;
+    font-style: italic;
+}

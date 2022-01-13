@@ -1,0 +1,61 @@
+.form-container {
+    margin: 1rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: whitesmoke;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    transition: 1000ms;
+}
+
+.submit-button {
+    padding: 0.5rem 3rem;
+    width: 50%;
+    transition: 250ms;
+    align-self: center;
+    margin: 1rem 0;
+}
+
+.add-dish-button {
+    padding: 0.5rem 3rem;
+    transition: 250ms;
+}
+
+.add-dish-button:hover,
+.submit-button:hover {
+    box-shadow: 0 0 1rem black;
+    transform: scale(1.1);
+}
+
+.add-dish-button-hide::after {
+    content: '-';
+}
+
+.add-dish-button-show::after {
+    content: '+';
+}
+
+button {
+    border: none;
+    border-radius: 1rem;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    font-family: Lucida Handwriting, Helvetica, cursive;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.alert {
+    color: red;
+    font-style: italic;
+}

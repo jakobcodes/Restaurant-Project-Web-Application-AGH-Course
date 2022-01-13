@@ -1,0 +1,41 @@
+<div class="form-container">
+    <form action="" [formGroup]="rateForm" (ngSubmit)="onSubmit(rateForm.value)">
+        <div class="header_container">
+            <h2>rate dish</h2>
+        </div>
+        <div class="input-group">
+            <input formControlName="nick" type="text" class="form-input" placeholder="NICK">
+            <div *ngIf="nick?.invalid && (nick?.dirty || nick?.touched)" class="alert">
+                <div *ngIf="nick?.errors?.['required']">
+                    Nick is required
+                </div>
+            </div>
+        </div>
+        <div class="input-group">
+            <input formControlName="name" type="text" class="form-input" placeholder="DISH NAME">
+            <div *ngIf="name?.invalid && (name?.dirty || name?.touched)" class="alert">
+                <div *ngIf="name?.errors?.['required']">
+                    Dish is required
+                </div>
+            </div>
+        </div>
+        <div class="input-group">
+            <input formControlName="description" type="text" class="form-input" placeholder="DESCRIPTION...">
+            <div *ngIf="description?.invalid && (description?.dirty || description?.touched)" class="alert">
+                <div *ngIf="description?.errors?.['required']">
+                    description is required
+                </div>
+                <div *ngIf="description?.errors?.['minlength']">
+                    description at least 50
+                </div>
+                <div *ngIf="description?.errors?.['maxlength']">
+                    description no more than 500
+                </div>
+            </div>
+        </div>
+        <div class="input-group ">
+            <input formControlName="date" type="date" class="form-input">
+        </div>
+        <button type="submit" class="submit-btn" [disabled]="!rateForm.valid">submit</button>
+    </form>
+</div>
