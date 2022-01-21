@@ -12,4 +12,5 @@ export interface Dish{
     images: string[];
     basketQuantity: number;
     rates: Rate[];
+    rating?: number[];
 }

@@ -1,25 +1,38 @@
 <nav>
-    <div>
-        <app-currency></app-currency>
-    </div>
     <ul>
+        <div class="currency">
+            <app-currency></app-currency>
+        </div>
         <li>
             <a routerLink="/home">home</a>
 
         </li>
-        <div class="slash">/</div>
         <li>
             <a routerLink="/menu">menu</a>
 
         </li>
-        <div class="slash">/</div>
         <li>
             <a routerLink="/add-dish">add dish</a>
 
         </li>
-        <div class="slash">/</div>
         <li>
             <a routerLink="/basket">basket</a>
         </li>
     </ul>
+    <ul>
+        <li>
+            <p>{{displayName}}</p>
+        </li>
+
+        <li [ngClass]="{'isLoggedIn' : status}">
+            <a routerLink="/register">register</a>
+        </li>
+        <li [ngClass]="{'isLoggedIn' : status}">
+            <a routerLink="/login">login</a>
+        </li>
+        <li [ngClass]="{'isLoggedIn' : !status}">
+            <a (click)="logOut()">log out</a>
+        </li>
+    </ul>
+
 </nav>

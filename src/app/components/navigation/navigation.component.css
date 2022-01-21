@@ -17,19 +17,31 @@ li,
     padding: 1rem;
     margin-left: 1rem;
     border-radius: 1rem;
+    font-size: 1rem;
 }
 
-a,
-.slash {
+p {
+    font-weight: bold;
+}
+
+a {
     text-transform: uppercase;
     text-decoration: none;
     color: black;
-    font-size: 1.5rem;
     transition: 200ms;
+    cursor: pointer;
 }
 
 a:hover {
     text-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+}
+
+.isLoggedIn {
+    display: none;
+}
+
+.currency {
+    align-self: flex-start;
 }
 
 @media(max-width:900px) {

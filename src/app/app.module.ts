@@ -17,13 +17,20 @@ import { CurrencyService } from './services/currency.service';
 import { DishDetailsComponent } from './components/dish-details/dish-details.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { RateFormComponent } from './components/rate-form/rate-form.component';
+import { FormsModule } from '@angular/forms'; 
 
 // FIRESTORE
 import { AngularFireModule } from '@angular/fire/compat'
 import { AngularFirestoreModule} from '@angular/fire/compat/firestore'
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+
+
 import { environment } from '../environments/environment';
 import { RatesListComponent } from './components/rates-list/rates-list.component';
 import { MapComponent } from './components/map/map.component';
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
+
 
 
 
@@ -42,11 +49,14 @@ import { MapComponent } from './components/map/map.component';
     RateFormComponent,
     RatesListComponent,
     MapComponent,
+    RegisterComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
   ],
