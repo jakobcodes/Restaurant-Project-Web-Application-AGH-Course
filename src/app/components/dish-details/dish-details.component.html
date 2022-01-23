@@ -10,12 +10,12 @@
     </p>
 
 
-    <div class="cnt-left" [ngClass]="{'cnt-left-warning' : (dishes[id].maxPositions - dishes[id].basketQuantity) < 4}"> {{dishes[id].maxPositions - dishes[id].basketQuantity}}</div>
+    <div class="cnt-left" [ngClass]="{'cnt-left-warning' : (dishes[id].maxPositions - getBasketQty(dishes[id])) < 4}"> {{dishes[id].maxPositions - getBasketQty(dishes[id])}}</div>
 
     <div class="buttons">
-        <button class="decBtn" [ngClass]="{'vanish' : dishes[id].basketQuantity == 0}" (click)="decrement(dishes[id])">-</button>
-        <h4 class="cnt">{{dishes[id].basketQuantity}}</h4>
-        <button class="incBtn" [ngClass]="{'vanish' : dishes[id].basketQuantity == dishes[id].maxPositions}" (click)="increment(dishes[id])">+</button>
+        <button class="decBtn" [ngClass]="{'vanish' : getBasketQty(dishes[id]) == 0}" (click)="removeFromBasket(dishes[id])">-</button>
+        <h4 class="cnt">{{getBasketQty(dishes[id])}}</h4>
+        <button class="incBtn" [ngClass]="{'vanish' : getBasketQty(dishes[id]) == dishes[id].maxPositions}" (click)="addToBasket(dishes[id])">+</button>
     </div>
 </div>
 <app-rate-form [dish]="dishes[id]">

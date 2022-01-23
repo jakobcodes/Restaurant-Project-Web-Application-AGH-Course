@@ -36,7 +36,7 @@ a:hover {
     text-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
 }
 
-.isLoggedIn {
+.hide {
     display: none;
 }
 

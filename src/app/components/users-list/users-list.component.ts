@@ -29,5 +29,10 @@ export class UsersListComponent implements OnInit {
       console.log('user unbanned')
     })
   }
+  changeRole(user: User, role: string){
+    this.usersService.changeRole(user,role).then(res => {
+      console.log('role changed')
+    })
+  }
 
 }

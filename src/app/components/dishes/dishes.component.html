@@ -6,12 +6,12 @@
         <img src={{dish.images}} alt="" (click)="goToDetails(i)">
         <h1 class="name">{{dish.name | uppercase}}</h1>
         <h3 class="price"> {{showPrice(dish)}} {{currency}} </h3>
-        <div class="cnt-left" [ngClass]="{'cnt-left-warning' : (dish.maxPositions - dish.basketQuantity) < 4}"> {{dish.maxPositions - dish.basketQuantity}}</div>
+        <div class="cnt-left" [ngClass]="{'cnt-left-warning' : (dish.maxPositions - getBasketQty(dish)) < 4}"> {{dish.maxPositions - getBasketQty(dish)}}</div>
 
         <div class="buttons">
-            <button class="decBtn" [ngClass]="{'vanish' : dish.basketQuantity == 0}" (click)="decrement(dish)">-</button>
-            <h4 class="cnt">{{dish.basketQuantity}}</h4>
-            <button class="incBtn" [ngClass]="{'vanish' : dish.basketQuantity == dish.maxPositions}" (click)="increment(dish)">+</button>
+            <button class="decBtn" [ngClass]="{'vanish' : getBasketQty(dish) == 0}" (click)="removeFromBasket(dish)">-</button>
+            <h4 class="cnt">{{getBasketQty(dish)}}</h4>
+            <button class="incBtn" [ngClass]="{'vanish' : getBasketQty(dish) == dish.maxPositions}" (click)="addToBasket(dish)">+</button>
         </div>
     </div>
 </div>

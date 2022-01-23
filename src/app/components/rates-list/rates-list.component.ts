@@ -9,16 +9,12 @@ import { RateService } from 'src/app/services/rate.service';
   templateUrl: './rates-list.component.html',
   styleUrls: ['./rates-list.component.css']
 })
-export class RatesListComponent implements OnInit,Observer {
+export class RatesListComponent implements OnInit{
 
   @Input() dish!: Dish;
 
-  constructor(private rateService: RateService) { 
-    this.rateService.attach(this);
+  constructor() { 
   }
-  update(): void {
-  }
-
   ngOnInit(): void {
   }
 

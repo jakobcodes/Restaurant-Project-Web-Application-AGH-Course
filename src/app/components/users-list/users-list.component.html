@@ -3,12 +3,24 @@
         <p>{{user.displayName}}</p>
         <p>{{user.email}}</p>
         <div class="roles">
-            <p>customer: {{user.roles.customer}} </p>
-            <p>manager: {{user.roles.manager}}</p>
-            <p>admin: {{user.roles.admin}}</p>
+            <div class="role-group">
+                <p>customer: </p>
+                <button>{{user.roles.customer}}</button>
+            </div>
+            <div class="role-group">
+                <p>manager: </p>
+                <button (click)="changeRole(user,'manager')" [ngClass]="{'green' : user.roles.manager, 'red' : !user.roles.manager}">{{user.roles.manager}}</button>
+            </div>
+            <div class="role-group">
+                <p>admin: </p>
+                <button (click)="changeRole(user,'admin')" [ngClass]="{'green' : user.roles.admin, 'red' : !user.roles.admin}">{{user.roles.admin}}</button>
+            </div>
         </div>
-        <p>banned: {{user.banned}}</p>
-        <button (click)="banUser(user)">ban</button>
-        <button (click)="unbanUser(user)">unban</button>
+        <p>banned:
+            <span class="bold" [ngClass]="{'green-text' : !user.banned, 'red-text' : user.banned}">{{user.banned}}</span>
+
+        </p>
+        <button (click)="banUser(user)" class="red margin">ban</button>
+        <button (click)="unbanUser(user)" class="green margin">unban</button>
     </div>
 </div>

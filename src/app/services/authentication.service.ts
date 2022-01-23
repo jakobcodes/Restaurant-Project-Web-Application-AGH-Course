@@ -101,36 +101,6 @@ export class AuthenticationService {
     return this.angularFireAuth.currentUser
   }
   
-
-  // determines if user has matching role
-  private checkAuthorization(user: User, allowedRoles: string[]) : boolean{
-    if (!user) return false
-
-    for (const role of allowedRoles){
-      if (user.roles?[role]:Boolean){
-        return true
-      }
-    }
-    return false
-  }
-
-  canReadDishManager(user: User):boolean{
-    const allowed = ['admin', 'manager']
-    return this.checkAuthorization(user,allowed);
-  }
-
-  canRead(user: User):boolean {
-    const allowed = ['admin', 'manager','customer']
-    return this.checkAuthorization(user, allowed);
-  }
-  canEdit(user: User):boolean {
-    const allowed = ['admin', 'manager']
-    return this.checkAuthorization(user, allowed);
-  }
-  canDelete(user: User):boolean {
-    const allowed = ['admin']
-    return this.checkAuthorization(user, allowed);
-  }
   isBanned(){
     return this.userData?.pipe(switchMap(user => {
       console.log(user?.banned)

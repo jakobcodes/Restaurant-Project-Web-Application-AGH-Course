@@ -9,12 +9,13 @@
     </div>
 
     <div class="basket-container">
-        <div class="position" *ngFor="let dish of basket">
+        <div class="position" *ngFor="let dish of dishes">
             <img src={{dish.images}} alt="">
             <div class="div pos-info">
                 <h3 class="dish-name">{{dish.name}}</h3>
                 <p class="price">Unit price: {{showPrice(dish)}} {{currency}}</p>
-                <p class="quantity">Quantity: {{dish.basketQuantity}}</p>
+                <p class="quantity">Quantity: {{getBasketQty(dish)}}</p>
+                <p>Total Value: {{showPrice(dish) * getBasketQty(dish)}} {{currency}}</p>
             </div>
         </div>
     </div>

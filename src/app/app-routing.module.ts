@@ -13,6 +13,8 @@ import { CustomerGuard } from './guard/customer.guard';
 import { LoggedAuthGuard } from './guard/logged-auth.guard';
 import { EditDishComponent } from './components/edit-dish/edit-dish.component';
 import { AdminViewComponent } from './components/admin-view/admin-view.component';
+import { DishManagerGuard } from './guard/dish-manager.guard';
+import { AdminViewGuard } from './guard/admin-view.guard';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -21,15 +23,15 @@ const routes: Routes = [
   {
     path: 'dishes-manager',
     component: DishesManagerComponent,
-    canActivate: [AuthGuard]
+    canActivate: [DishManagerGuard, AuthGuard ]
   },
   {
     path: 'admin-view',
     component: AdminViewComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, AdminViewGuard]
   },
   {
-    path: 'dishes-manager/:id', component: EditDishComponent, canActivate: [AuthGuard]
+    path: 'dishes-manager/:id', component: EditDishComponent, canActivate: [AuthGuard, DishManagerGuard]
   },
   {path: 'basket', component: BasketComponent, canActivate: [AuthGuard]},
   {path: 'register', component: RegisterComponent, canActivate: [LoggedAuthGuard]},

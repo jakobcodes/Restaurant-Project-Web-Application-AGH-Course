@@ -6,5 +6,8 @@ export interface User{
     displayName?: string;
     roles: Roles;
     banned?: boolean;
-    // boughtDishes?: string[];
+    basket?: {
+        dishID: string,
+        quantity: number
+    }[];
 }
