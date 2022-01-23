@@ -7,15 +7,30 @@ import { DishesComponent } from './components/dishes/dishes.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { DishesManagerComponent } from './components/dishes-manager/dishes-manager.component';
 import { AuthGuard } from './guard/auth.guard';
 import { CustomerGuard } from './guard/customer.guard';
 import { LoggedAuthGuard } from './guard/logged-auth.guard';
+import { EditDishComponent } from './components/edit-dish/edit-dish.component';
+import { AdminViewComponent } from './components/admin-view/admin-view.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'menu', component: DishesComponent},
-  {path: 'menu/:id', component: DishDetailsComponent, canActivate: [CustomerGuard]},
-  {path: 'add-dish', component: DishFormComponent, canActivate: [AuthGuard]},
+  {path: 'menu/:id', component: DishDetailsComponent, canActivate: [AuthGuard]},
+  {
+    path: 'dishes-manager',
+    component: DishesManagerComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'admin-view',
+    component: AdminViewComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'dishes-manager/:id', component: EditDishComponent, canActivate: [AuthGuard]
+  },
   {path: 'basket', component: BasketComponent, canActivate: [AuthGuard]},
   {path: 'register', component: RegisterComponent, canActivate: [LoggedAuthGuard]},
   {path: 'login', component: LoginComponent, canActivate: [LoggedAuthGuard]},

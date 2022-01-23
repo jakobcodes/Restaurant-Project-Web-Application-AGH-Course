@@ -1,0 +1,24 @@
+* {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.users-container {
+    /* text-align: center; */
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-container {
+    width: 50%;
+    margin: 1rem 0;
+    padding: 1rem;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+    background-color: whitesmoke;
+}
+
+.roles {
+    margin: 1rem 0;
+}

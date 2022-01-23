@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
-import { map, Observable, of, switchMap } from 'rxjs';
+import { map, Observable, of, switchMap, take } from 'rxjs';
 
 import { User } from '../models/user';
 import { Roles } from '../models/roles';
@@ -21,23 +21,6 @@ export class AuthenticationService {
     private angularFirestore: AngularFirestore,
     private router: Router
     ) {
-    // angularFireAuth.authState.pipe(
-    //   switchMap((user:firebase.default.User)=> {
-    //     if (user) {
-    //       this.userData = this.angularFirestore.doc<User>(`users/${user.uid}`).valueChanges();
-    //     }else{
-    //       this.userData = of(null)
-    //     }
-    //   })
-    // )
-    // angularFireAuth.authState.pipe(
-    //   map(user => {
-    //     if(user){
-    //       this.userData = this.angularFirestore.doc<User>(`users/${user.uid}`).valueChanges()
-    //     }
-    //   })
-    // )
-
 
     angularFireAuth.authState.subscribe(auth => {
       if(auth){
@@ -89,6 +72,7 @@ export class AuthenticationService {
       .signOut()
       .then(res => {
         console.log('Succsessfully signed out', res);
+        this.router.navigate(['home']);
       })
       .catch(error => {
         console.log('Something went wrong: ', error.message);
@@ -100,12 +84,15 @@ export class AuthenticationService {
     const userRef: AngularFirestoreDocument<User> = this.angularFirestore.doc(`users/${uid}`);
 
     const data = {
-      uid,
-      email,
-      displayName,
+      uid: uid,
+      email: email,
+      displayName: displayName,
       roles: {
         customer: true,
-      }
+        manager: false,
+        admin: false
+      },
+      banned: false
     }
     return userRef.set(data, {merge: true});
   }
@@ -127,9 +114,8 @@ export class AuthenticationService {
     return false
   }
 
-
-  canReadDishDetails(user: User):boolean{
-    const allowed = ['admin', 'manager','customer']
+  canReadDishManager(user: User):boolean{
+    const allowed = ['admin', 'manager']
     return this.checkAuthorization(user,allowed);
   }
 
@@ -144,5 +130,14 @@ export class AuthenticationService {
   canDelete(user: User):boolean {
     const allowed = ['admin']
     return this.checkAuthorization(user, allowed);
+  }
+  isBanned(){
+    return this.userData?.pipe(switchMap(user => {
+      console.log(user?.banned)
+      if (user?.banned){
+        return of(true)
+      }else return of(false)
+    }))
+    
   }
 }

@@ -10,7 +10,6 @@ import { MenuService } from 'src/app/services/menu.service';
   styleUrls: ['./dish-form.component.css']
 })
 export class DishFormComponent implements OnInit {
-  showForm:boolean = false;
   dishForm: FormGroup;
 
   @Output() dishEvent = new EventEmitter<Dish>();

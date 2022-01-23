@@ -1,6 +1,6 @@
 <div class="container">
     <app-carousel [images]=dishes[id].images></app-carousel>
-    <app-rate></app-rate>
+    <app-rating [dish]="dishes[id]"></app-rating>
     <h1>{{dishes[id].name | uppercase}}</h1>
     <h4> {{dishes[id].category | uppercase}}</h4>
     <h3 class="price"> {{showPrice(dishes[id])}} {{currency}} </h3>

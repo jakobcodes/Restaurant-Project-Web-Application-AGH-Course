@@ -3,4 +3,5 @@ export interface Rate{
     name: string;
     description: string;
     date?: Date;
+    dishID: string;
 }

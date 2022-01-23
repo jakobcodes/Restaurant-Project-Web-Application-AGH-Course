@@ -12,16 +12,21 @@
 
         </li>
         <li>
-            <a routerLink="/add-dish">add dish</a>
+            <a routerLink="/admin-view">admin view</a>
 
         </li>
         <li>
-            <a routerLink="/basket">basket</a>
+            <a routerLink="/dishes-manager">dishes manager</a>
+
         </li>
+
     </ul>
     <ul>
         <li>
             <p>{{displayName}}</p>
+        </li>
+        <li [ngClass]="{'isLoggedIn' : !status}">
+            <a routerLink="/basket">🛒</a>
         </li>
 
         <li [ngClass]="{'isLoggedIn' : status}">

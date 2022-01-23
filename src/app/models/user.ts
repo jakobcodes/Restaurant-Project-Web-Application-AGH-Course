@@ -5,5 +5,6 @@ export interface User{
     email: string;
     displayName?: string;
     roles: Roles;
-    boughtDishes?: string[];
+    banned?: boolean;
+    // boughtDishes?: string[];
 }

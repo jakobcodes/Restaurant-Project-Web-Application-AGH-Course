@@ -70,10 +70,6 @@ export class DishesComponent implements OnInit,Observer {
     this.menuService.decrementBasketQuantity(dish);
     this.countReservedPositions();
   }
-  removePos(dish:Dish){
-    this.menuService.removeDish(dish);
-    this.countMaxAndMinPrices();
-  }
   countMaxAndMinPrices(){
     if(this.dishes.length > 0){
       this.maxPrice = this.dishes[0].price;

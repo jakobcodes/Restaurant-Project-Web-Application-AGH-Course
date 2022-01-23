@@ -13,8 +13,5 @@
             <h4 class="cnt">{{dish.basketQuantity}}</h4>
             <button class="incBtn" [ngClass]="{'vanish' : dish.basketQuantity == dish.maxPositions}" (click)="increment(dish)">+</button>
         </div>
-        <button class="delete" (click)="removePos(dish)">
-            🗑️
-        </button>
     </div>
 </div>

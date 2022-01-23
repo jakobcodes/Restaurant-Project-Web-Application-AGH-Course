@@ -17,8 +17,6 @@ export class NavigationComponent implements OnInit {
         this.status = true;
         if (status.displayName != null){
           this.displayName = 'Welcome ' + status.displayName
-        }else{
-          this.displayName = 'null'
         }
       }else{
         this.status = false;

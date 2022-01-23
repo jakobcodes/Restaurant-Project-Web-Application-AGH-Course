@@ -1,0 +1,17 @@
+<div class="dishes">
+    <div class="dish-container" *ngFor="let dish of dishes; let i=index">
+        <img src={{dish.images}} alt="" (click)="goToDetails(i)">
+        <h1 class="name">{{dish.name | uppercase}}</h1>
+        <h3 class="price"> {{showPrice(dish)}} {{currency}} </h3>
+        <div class="cnt-left" [ngClass]="{'cnt-left-warning' : (dish.maxPositions - dish.basketQuantity) < 4}"> {{dish.maxPositions - dish.basketQuantity}}</div>
+
+        <button class="delete" (click)="removePos(dish)">
+            🗑️
+        </button>
+    </div>
+</div>
+
+<section class="new-dish-form">
+    <h1 class="new-dish-title">ADD NEW DISH</h1>
+    <app-dish-form></app-dish-form>
+</section>

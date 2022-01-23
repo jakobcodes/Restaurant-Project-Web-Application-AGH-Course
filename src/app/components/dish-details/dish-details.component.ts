@@ -19,7 +19,7 @@ export class DishDetailsComponent implements OnInit,Observer {
   currency: Currency;
   dishes: Dish[] = [];
 
-  constructor(private menuService: MenuService, private route: ActivatedRoute, private currencyService: CurrencyService, private rateService: RateService) {
+  constructor(private menuService: MenuService, private route: ActivatedRoute, private currencyService: CurrencyService) {
     this.id = Number(this.route.snapshot.paramMap.get('id'));
     this.getDishes();
 
@@ -49,9 +49,6 @@ export class DishDetailsComponent implements OnInit,Observer {
   }
   decrement(dish: Dish){
     this.menuService.decrementBasketQuantity(dish);
-  }
-  removePos(dish: Dish){
-
   }
 
 }
