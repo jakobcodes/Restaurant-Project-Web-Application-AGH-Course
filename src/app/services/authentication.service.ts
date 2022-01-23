@@ -6,7 +6,6 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat
 import { map, Observable, of, switchMap, take } from 'rxjs';
 
 import { User } from '../models/user';
-import { Roles } from '../models/roles';
 
 @Injectable({
   providedIn: 'root'
@@ -24,12 +23,10 @@ export class AuthenticationService {
 
     angularFireAuth.authState.subscribe(auth => {
       if(auth){
-        // alert("logged in" + auth.displayName);
         this.userData = this.angularFirestore.doc<User>(`users/${auth.uid}`).valueChanges()
         console.log("logged in");
         console.log(auth);
       }else{
-        // alert("wylogowano");
         console.log("not logged in");
         console.log(auth)
       }
@@ -109,5 +106,8 @@ export class AuthenticationService {
       }else return of(false)
     }))
     
+  }
+  setPersistence(session: string){
+    this.angularFireAuth.setPersistence(session).then(val => console.log('persistance changed'))
   }
 }

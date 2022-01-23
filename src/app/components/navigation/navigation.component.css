@@ -1,3 +1,7 @@
+body {
+    position: relative;
+}
+
 nav {
     background-color: #F8F8F8;
     padding: 1rem;
@@ -40,13 +44,38 @@ a:hover {
     display: none;
 }
 
-.currency {
-    align-self: flex-start;
+.nav-toggle-label,
+.nav-toggle {
+    display: none;
 }
 
-@media(max-width:900px) {
+@media(max-width:1100px) {
+    .currency {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .nav-toggle-label {
+        margin-left: 1rem;
+        margin-top: 1rem;
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin-left: 1em;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        z-index: 999;
+    }
     nav {
+        transform: scale(1, 0);
         flex-direction: column;
+        transition: transform 400ms ease-in-out;
+        transform-origin: top;
+        display: none;
+        opacity: 0;
+        transition: opacity 2000ms ease-in-out;
+        transition: display 100ms;
     }
     ul {
         flex-direction: column;
@@ -54,5 +83,48 @@ a:hover {
     }
     .slash {
         display: none;
+    }
+    .hamburger,
+    .hamburger::before,
+    .hamburger::after {
+        display: block;
+        background-color: black;
+        height: 2px;
+        width: 1.65em;
+        border-radius: 2px;
+        position: relative;
+        transition-property: transform background-color;
+        transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transition-duration: 1s;
+    }
+    .hamburger::before,
+    .hamburger::after {
+        content: '';
+        position: absolute;
+    }
+    .hamburger::before {
+        bottom: 7px;
+    }
+    .hamburger::after {
+        top: 7px;
+    }
+    .nav-toggle:checked~nav {
+        transform: scale(1, 1);
+        opacity: 1;
+        display: block;
+    }
+    .nav-toggle:checked~nav a {
+        opacity: 1;
+        transition: opacity 250ms ease-in-out 250ms;
+    }
+    .nav-toggle:checked~.nav-toggle-label .hamburger {
+        background-color: transparent;
+        transform: rotate(180deg);
+    }
+    .nav-toggle:checked~.nav-toggle-label .hamburger::before {
+        transform: translateY(7px) rotate(-45deg);
+    }
+    .nav-toggle:checked~.nav-toggle-label .hamburger::after {
+        transform: translateY(-7px) rotate(45deg);
     }
 }

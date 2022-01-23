@@ -9,7 +9,6 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { DishesManagerComponent } from './components/dishes-manager/dishes-manager.component';
 import { AuthGuard } from './guard/auth.guard';
-import { CustomerGuard } from './guard/customer.guard';
 import { LoggedAuthGuard } from './guard/logged-auth.guard';
 import { EditDishComponent } from './components/edit-dish/edit-dish.component';
 import { AdminViewComponent } from './components/admin-view/admin-view.component';

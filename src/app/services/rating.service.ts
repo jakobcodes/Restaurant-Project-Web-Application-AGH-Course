@@ -19,6 +19,7 @@ export class RatingService {
   ratingRef: AngularFirestoreCollection<Rating>
   ratings: Rating[] = []
   ratingsSubject: BehaviorSubject<Rating[]> = new BehaviorSubject<Rating[]>(this.ratings);
+  isManager:boolean = false
 
   constructor(
     private db: AngularFirestore,
@@ -27,6 +28,7 @@ export class RatingService {
   ) {
     this.ratingRef = this.db.collection('rating')
     this.getRatings()
+    this.checkManager()
   }
   getRatings() {
     this.ratingRef.snapshotChanges().pipe(
@@ -52,7 +54,7 @@ export class RatingService {
   // dlatego kazdy ma tylko jedna ocene na danie, ktora moze zmieniac)
   rate(dish: Dish, rate: number) {
     this.authService.userData?.pipe(take(1)).subscribe(user => {
-      if (user?.banned || !this.basketService.userBoughtDish(dish) || this.isManager()) {
+      if (user?.banned || !this.basketService.userBoughtDish(dish) || this.isManager) {
         console.log('error')
       } else {
         if (this.findRating(dish.key!, user?.uid!)) {
@@ -78,13 +80,17 @@ export class RatingService {
       }
     })
   }
-  isManager(){
-    if (this.authService.userData){
-      return this.authService.userData.pipe(map(user => {
-        return user?.roles.manager
-      }))
-    }
-    return false
+  checkManager(){
+    this.authService.authState$.subscribe(status => {
+      if(status){
+        this.authService.userData?.subscribe(res => {
+          if(res?.roles.manager) this.isManager = true
+          else this.isManager = false
+        })
+      }else{
+        this.isManager = false
+      }
+    })
   }
 
   addRating(rating: Rating) {

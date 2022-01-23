@@ -114,4 +114,7 @@ button {
     .dishes {
         grid-template-columns: 1fr;
     }
+    .new-dish-form {
+        width: 95%;
+    }
 }

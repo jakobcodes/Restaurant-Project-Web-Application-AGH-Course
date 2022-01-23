@@ -55,7 +55,7 @@ export class RatingComponent implements OnInit {
     this.authService.isBanned()?.pipe(take(1)).subscribe(res => {
       if (res) alert('user is banned, he cannot rate')
       else if (!this.basketService.userBoughtDish(this.dish!)) alert('user didnt bought dish')
-      else if (this.ratingService.isManager()) alert('Manager cant rate')
+      else if (this.ratingService.isManager) alert('Manager cant rate')
       else this.dishRate = starID
     })
   }
